@@ -4,8 +4,11 @@ An app aimed at empowering nonprofits to efficiently manage government grants.
 
 ## Installation
 
+<<<<<<< HEAD
 ruby 2.5.0
 
+=======
+>>>>>>> 801d2c0db71209c7ae0283b916e309719f487b21
 Clone this repository
 
 Stay tuned for complete directions.
