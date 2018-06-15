@@ -1,4 +1,16 @@
-<h2>Hello World</h2>
+<h2>Welcome, tenant.</h2>
 <p>
   The time is now: <%= Time.now %>
 </p>
+<p>
+  Unlock your apartment below.
+</p>
+<% if user_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Login', new_user_session_path)  %>  
+  </li>
+<% end %>
