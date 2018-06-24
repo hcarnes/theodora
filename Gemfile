@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+gem 'omniauth-google-oauth2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
 # Use sqlite3 as the database for Active Record
@@ -56,4 +56,4 @@ gem 'devise'
 gem 'apartment', '~> 1.02'
 
 
-ruby "2.5.0"
+ruby "2.5.1"
