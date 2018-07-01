@@ -11,6 +11,9 @@
   </p>
 <% else %>
   <p>
+    <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
+  </p>
+  <p>
     <%= link_to('Login', new_user_session_path)  %>  
   </p>
 <% end %>
