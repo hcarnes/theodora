@@ -1,9 +1,6 @@
-<h2>Welcome, tenant.</h2>
+<h2>Welcome to <%= current_organization && current_organization.name || "Theodora" %></h2>
 <p>
   The time is now: <%= Time.now %>
-</p>
-<p>
-  Unlock your apartment below.
 </p>
 <% if user_signed_in? %>
   <li>

@@ -59,9 +59,18 @@ end
 
 # Setup a custom Tenant switching middleware. The Proc should return the name of the Tenant that
 # you want to switch to.
-# Rails.application.config.middleware.use 'Apartment::Elevators::Generic', -> (request) { 
-#   "hello_world"
-# }
+Rails.application.config.middleware.insert_after Warden::Manager, Apartment::Elevators::Generic, -> (request) { 
+  # Rails.logger.info request.env['warden'].user
+  ad_request = ActionDispatch::Request.new(Rails.application.env_config.merge(request.env))
+  if ad_request.cookie_jar[:selected_organization_id]
+    org_id = ad_request.cookie_jar[:selected_organization_id]
+
+    if org_id.present?
+      org = Organization.find(org_id)
+      org.tenant_name if org
+    end
+  end
+}
 
 # Rails.application.config.middleware.use 'Apartment::Elevators::Domain'
 # Rails.application.config.middleware.use 'Apartment::Elevators::Subdomain'

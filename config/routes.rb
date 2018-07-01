@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'select_organization', to: 'tenant_selector#index'
+  get 'tenant_selector', to: 'tenant_selector#index'
+  post 'select_tenant/:id', to: 'tenant_selector#create', as: :select_tenant
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
