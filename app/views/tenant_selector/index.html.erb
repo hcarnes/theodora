@@ -1,0 +1,6 @@
+<h1>Organizations</h1>
+<ul>
+  <% @organizations.each do |org| %>
+    <li><%= link_to org.name, select_tenant_path(org), method: :post %></li>
+  <% end %>
+</ul>
