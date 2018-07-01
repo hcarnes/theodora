@@ -1,2 +1,6 @@
-<h1>TenantSelector#index</h1>
-<p>Find me in app/views/tenant_selector/index.html.erb</p>
+<h1>Organizations</h1>
+<ul>
+  <% @organizations.each do |org| %>
+    <li><%= org.name %></li>
+  <% end %>
+</ul>
