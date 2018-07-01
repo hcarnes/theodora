@@ -15,7 +15,7 @@ Apartment.configure do |config|
   # Add any models that you do not want to be multi-tenanted, but remain in the global (public) namespace.
   # A typical example would be a Customer or Tenant model that stores each Tenant's information.
   #
-  config.excluded_models = %w{ Organization User }
+  config.excluded_models = %w{Organization User OrganizationUser}
 
   # In order to migrate all of your Tenants you need to provide a list of Tenant names to Apartment.
   # You can make this dynamic by providing a Proc object to be called on migrations.
@@ -23,7 +23,7 @@ Apartment.configure do |config|
   # - an array of strings representing each Tenant name.
   # - a hash which keys are tenant names, and values custom db config (must contain all key/values required in database.yml)
   #
-  config.tenant_names = -> { Organization.pluck(:tenant_name) }
+  config.tenant_names = -> { Organization.all.map(&:tenant_name) }
 
   #
   # ==> PostgreSQL only options
@@ -60,13 +60,12 @@ end
 # Setup a custom Tenant switching middleware. The Proc should return the name of the Tenant that
 # you want to switch to.
 Rails.application.config.middleware.insert_after Warden::Manager, Apartment::Elevators::Generic, -> (request) { 
-  # Rails.logger.info request.env['warden'].user
   ad_request = ActionDispatch::Request.new(Rails.application.env_config.merge(request.env))
-  if ad_request.cookie_jar[:selected_organization_id]
+  if request.env['warden'].user && ad_request.cookie_jar[:selected_organization_id]
     org_id = ad_request.cookie_jar[:selected_organization_id]
 
     if org_id.present?
-      org = Organization.find(org_id)
+      org = request.env['warden'].user.organizations.find(org_id)
       org.tenant_name if org
     end
   end
