@@ -57,13 +57,7 @@ GEM
       xpath (>= 2.0, < 4.0)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
-    coffee-rails (4.2.2)
-      coffee-script (>= 2.2.0)
-      railties (>= 4.0.0)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.12.2)
+    coderay (1.1.2)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
     devise (4.4.3)
@@ -101,6 +95,11 @@ GEM
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
     pg (1.0.0)
+    pry (0.11.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    pry-rails (0.3.6)
+      pry (>= 0.10.4)
     public_suffix (3.0.2)
     puma (3.11.4)
     rack (2.0.5)
@@ -194,11 +193,11 @@ DEPENDENCIES
   apartment (~> 1.02)
   byebug
   capybara (~> 2.13)
-  coffee-rails (~> 4.2)
   devise
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   pg
+  pry-rails
   puma (~> 3.7)
   rails (~> 5.1.6)
   sass-rails (~> 5.0)
