@@ -8,6 +8,13 @@ Clone this repository
 
 Stay tuned for complete directions.
 
+## Google Login
+To support logging in with Google, create a `.env` file in the project root with your OAuth2 credentials:
+```
+GOOGLE_CLIENT_ID=CLIENT_ID_GOES_HERE
+GOOGLE_CLIENT_SECRET=SECRET_GOES_HERE
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/hcarnes/theodora. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
