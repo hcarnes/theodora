@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def current_organization
-    @current_organization ||= if current_user && cookies[:selected_organization_id]
-      current_user.organizations.find(cookies[:selected_organization_id])
+    @current_organization ||= if current_user && session[:selected_organization_id]
+      current_user.organizations.find_by(id: session[:selected_organization_id])
     end
   end
 end

@@ -5,7 +5,7 @@ class TenantSelectorController < ApplicationController
 
   def create
     org = current_user.organizations.find(params[:id])
-    cookies[:selected_organization_id] = org.id
+    session[:selected_organization_id] = org.id
 
     redirect_to root_path
   end
