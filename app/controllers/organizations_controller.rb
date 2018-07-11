@@ -4,7 +4,7 @@ class OrganizationsController < ApplicationController
   # GET /organizations
   # GET /organizations.json
   def index
-    @organizations = Organization.all
+    @organizations = current_user.organizations
   end
 
   # GET /organizations/1
@@ -51,16 +51,6 @@ class OrganizationsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @organization.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /organizations/1
-  # DELETE /organizations/1.json
-  def destroy
-    @organization.destroy
-    respond_to do |format|
-      format.html { redirect_to organizations_url, notice: 'Organization was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

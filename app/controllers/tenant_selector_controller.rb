@@ -7,6 +7,6 @@ class TenantSelectorController < ApplicationController
     org = current_user.organizations.find(params[:id])
     select_tenant(org)
 
-    redirect_to root_path
+    redirect_to organization_path(org)
   end
 end
