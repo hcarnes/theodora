@@ -10,6 +10,9 @@
       <%= content_tag :li, class: (current_page?(root_path) && %w[nav-item active] || "nav-item") do %>
         <%= link_to "Home", root_path, class: "nav-link" %>
       <% end %>
+      <%= content_tag :li, class: (current_page?(organizations_path) && %w[nav-item active] || "nav-item") do %>
+        <%= link_to "Organizations", organizations_path, class: "nav-link" %>
+      <% end %>
     </ul>
   </div>
   <ul class="navbar-nav my-2 my-lg-0">
