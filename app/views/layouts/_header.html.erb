@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Theodora</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <%= content_tag :li, class: (current_page?(root_path) && %w[nav-item active] || "nav-item") do %>
+        <%= link_to "Home", root_path, class: "nav-link" %>
+      <% end %>
+      <%= content_tag :li, class: (current_page?(organizations_path) && %w[nav-item active] || "nav-item") do %>
+        <%= link_to "Organizations", organizations_path, class: "nav-link" %>
+      <% end %>
+    </ul>
+  </div>
+  <ul class="navbar-nav my-2 my-lg-0">
+    <% if user_signed_in? %>
+      <li>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "nav-link" %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, class: "nav-link" %>
+      </li>
+      <li>
+        <%= link_to 'Login', new_user_session_path, class: "nav-link"  %>  
+      </li>
+    <% end %>
+  </ul>
+</nav>

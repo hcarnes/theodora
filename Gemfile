@@ -55,5 +55,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'apartment', '~> 1.02'
 gem "dotenv-rails"
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
 
 ruby "2.5.0"

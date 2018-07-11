@@ -1,17 +1,1 @@
 <h2>Welcome to Theodora</h2>
-
-<% if user_signed_in? %>
-  <p>
-    <%= link_to('Change Organization', tenant_selector_path) %>
-  </p>
-  <p>
-    <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-  </p>
-<% else %>
-  <p>
-    <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
-  </p>
-  <p>
-    <%= link_to('Login', new_user_session_path)  %>  
-  </p>
-<% end %>
