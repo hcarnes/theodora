@@ -28,6 +28,9 @@ class OrganizationsController < ApplicationController
 
     respond_to do |format|
       if @organization.save
+        current_user.organizations << @organization
+        select_tenant(@organization)
+
         format.html { redirect_to @organization, notice: 'Organization was successfully created.' }
         format.json { render :show, status: :created, location: @organization }
       else
@@ -64,7 +67,7 @@ class OrganizationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_organization
-      @organization = Organization.find(params[:id])
+      @organization = current_user.organizations.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
