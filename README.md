@@ -6,7 +6,9 @@ An app aimed at empowering nonprofits to efficiently manage government grants.
 
 Clone this repository
 
-Stay tuned for complete directions.
+CD into repository
+
+Run `rails s`
 
 ## Google Login
 To support logging in with Google, create a `.env` file in the project root with your OAuth2 credentials:
