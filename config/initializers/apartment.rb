@@ -64,7 +64,7 @@ Rails.application.config.middleware.insert_after Warden::Manager, Apartment::Ele
     org_id = request.session[:selected_organization_id]
 
     if org_id.present?
-      org = request.env['warden'].user.organizations.find(org_id)
+      org = request.env['warden'].user.organizations.find_by(id: org_id)
       org.tenant_name if org
     end
   end

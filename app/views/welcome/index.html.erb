@@ -1,7 +1,5 @@
-<h2>Welcome to <%= current_organization && current_organization.name || "Theodora" %></h2>
-<p>
-  The time is now: <%= Time.now %>
-</p>
+<h2>Welcome to Theodora</h2>
+
 <% if user_signed_in? %>
   <p>
     <%= link_to('Change Organization', tenant_selector_path) %>
